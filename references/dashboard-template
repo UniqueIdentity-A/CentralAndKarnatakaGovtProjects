@@ -1,0 +1,250 @@
+# Dashboard Template — Government Scheme Intelligence
+
+This file defines how every dashboard response MUST be structured.
+Always use this format. Do not output plain paragraphs.
+
+---
+
+## Template Structure
+
+### 1. Header Block
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🇮🇳  GOVERNMENT SCHEME INTELLIGENCE DASHBOARD
+Query: [User's query here]
+Sources: [List of portals checked]  |  Last Updated: [date/time]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### 2. Summary Cards Row
+
+```
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│  📋 TOTAL       │  │  ✅ ACTIVE      │  │  🆕 NEW         │  │  💎 HIDDEN      │
+│  XX Schemes     │  │  XX Schemes     │  │  XX This Year   │  │  XX Gems Found  │
+└─────────────────┘  └─────────────────┘  └─────────────────┘  └─────────────────┘
+```
+
+Also include when relevant:
+```
+┌─────────────────┐  ┌─────────────────┐
+│  ⚠️ CLOSING     │  │  💰 BUDGET      │
+│  XX Soon        │  │  ₹XX Crore      │
+└─────────────────┘  └─────────────────┘
+```
+
+### 3. Filter Tags Bar
+
+```
+🔖 FILTER BY: [#farmers] [#students] [#women] [#health] [#housing] [#startups] [#SC-ST-OBC] [#rural] [#Karnataka] [#Central]
+```
+
+### 4. Main Scheme Table
+
+Always use a markdown table with these columns:
+
+| # | Scheme Name | Gov Level | Dept/Ministry | Category | Status | Launch Date | Last Date | Benefits | Link |
+|---|------------|-----------|---------------|----------|--------|-------------|-----------|----------|------|
+| 1 | PM Kisan | 🇮🇳 Central | Agriculture | #farmers | ✅ Active | Feb 2019 | Ongoing | ₹6000/yr | [🔗 Apply](https://pmkisan.gov.in) |
+| 2 | Gruha Jyothi | 🏛️ Karnataka | Energy Dept | #rural | ✅ Active | Jun 2023 | Ongoing | Free 200 units | [🔗 Apply](https://sevasindhu.karnataka.gov.in) |
+
+**CRITICAL LINK RULES for the table:**
+- Links MUST use the format `[🔗 Apply](https://full-url-here)` — never bare text like `[url]` or `[Apply](url)`
+- The URL must be a real, complete URL starting with `https://` — never a placeholder
+- If the exact application URL is unknown, use the scheme's parent portal URL (e.g., `https://india.gov.in` or `https://karnataka.gov.in`)
+- If no link is available at all, write `🔗 [Search](https://www.google.com/search?q=SCHEME+NAME+apply+official)` as a fallback
+- Never leave the link cell empty or write `N/A` without a fallback search link
+
+**Status indicators:**
+- ✅ Active
+- ❌ Closed / Expired
+- 🆕 Newly Launched (< 6 months)
+- ⚠️ Closing Soon (< 30 days)
+- 💎 Hidden Gem
+- 🔜 Upcoming
+
+**Government level:**
+- 🇮🇳 Central Government
+- 🏛️ Karnataka State Government
+- 🤝 Central + State (joint)
+
+### 5. Detailed Scheme Panels
+
+For each scheme, provide an expandable details section:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 [SCHEME NAME]                    [STATUS BADGE]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏛️ Department:     [Ministry/Department Name]
+📅 Launched:       [Date]
+⏰ Apply Before:   [Date or "Ongoing"]
+🎯 Who Can Apply:  [Eligibility summary]
+💰 Benefit:        [What they get — ₹amount, service, etc.]
+
+📋 ELIGIBILITY CRITERIA:
+• [Criterion 1]
+• [Criterion 2]
+• [Criterion 3]
+
+📄 DOCUMENTS REQUIRED:
+• [Doc 1]   • [Doc 2]   • [Doc 3]
+
+🔗 OFFICIAL APPLY LINK: [Click Here to Apply →](https://actual-url-here)
+📊 STATS: [X applicants | Y approved | ₹Z allocated]
+
+[Source: portal.gov.in — fetched live / estimated from training data]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**⚠️ CRITICAL LINK RULES — MUST FOLLOW FOR EVERY SCHEME:**
+
+| Situation | What to write |
+|---|---|
+| Official URL is known | `[Click Here to Apply →](https://exact-official-url)` |
+| Exact apply page unknown, portal known | `[Visit Official Portal →](https://parent-portal.gov.in)` |
+| No URL available | `[Search for Apply Link →](https://www.google.com/search?q=SCHEME+NAME+official+apply)` |
+
+- **NEVER** write `[URL]`, `[link]`, `(url)`, or any placeholder text as a link destination
+- **NEVER** write the URL as plain unlinked text
+- **ALWAYS** use complete URLs starting with `https://`
+- Every scheme panel MUST have at least one working link — use the fallback Google search link if needed
+
+### 6. Analytics Section (when data available)
+
+**Scheme Launch Trend (text-based bar chart):**
+```
+📈 SCHEME LAUNCHES BY YEAR
+2020 ████░░░░░░  12 schemes
+2021 ██████░░░░  18 schemes
+2022 ████████░░  24 schemes
+2023 ██████████  30 schemes
+2024 ███████░░░  21 schemes (YTD)
+```
+
+**Category Distribution:**
+```
+📂 BY CATEGORY
+#farmers          ██████████ 32%
+#students         ████████░░ 24%
+#women            ██████░░░░ 18%
+#health           ████░░░░░░ 12%
+#startups         ███░░░░░░░  8%
+#other            ██░░░░░░░░  6%
+```
+
+**Budget Allocation (when known):**
+```
+💰 BUDGET SNAPSHOT (Karnataka 2024-25)
+Total Welfare Budget: ₹XX,XXX Crore
+├── Agriculture schemes:    ₹X,XXX Cr (XX%)
+├── Education schemes:      ₹X,XXX Cr (XX%)
+├── Health schemes:         ₹X,XXX Cr (XX%)
+└── Other welfare:          ₹X,XXX Cr (XX%)
+```
+
+### 7. Intelligence Panel (ALWAYS include at end)
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 INTELLIGENCE HIGHLIGHTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏆 TOP RECOMMENDED
+  → [Scheme A] — Most impactful for this query context
+  → [Scheme B] — High benefit-to-effort ratio
+
+📈 TRENDING NOW
+  → [Scheme C] — Recently covered in news / high applications
+  → [Scheme D] — New launch gaining traction
+
+💎 HIDDEN GEMS (rarely known, high value)
+  → [Scheme E] — Available but overlooked; eligible pop: [X]
+  → [Scheme F] — Niche scheme with significant benefit
+
+⚠️  CLOSING SOON
+  → [Scheme G] — Last date: [DD MMM YYYY]
+  → [Scheme H] — Last date: [DD MMM YYYY]
+
+📂 EXPLORE BY CATEGORY
+  [#farmers] [#students] [#women] [#SC-ST-OBC] [#health]
+  [#housing] [#startups] [#rural] [#employment] [#skill]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### 8. Source Attribution Footer
+
+```
+📡 DATA SOURCES CONSULTED:
+• india.gov.in — [fetched / not available]
+• karnataka.gov.in — [fetched / not available]
+• pib.gov.in — [fetched / not available]
+• data.gov.in — [fetched / not available]
+• [other sources used]
+
+⚠️ NOTE: Scheme status and dates may change. Always verify on official portals before applying.
+```
+
+---
+
+## Interactive Artifact Version
+
+When the user asks for a dashboard, interactive view, or visual:
+- Build a **React artifact** (JSX) with:
+  - Tab navigation: Overview | Schemes | Analytics | Hidden Gems
+  - Search/filter bar
+  - Expandable scheme cards
+  - Bar/pie charts using recharts
+  - Color-coded status badges
+- Use Tailwind classes for styling
+- Fetch data inline (hardcoded from search results since live API not available in artifact)
+
+Refer to `scripts/scheme-extractor.js` for the data structure to embed in the artifact.
+
+### 🔗 LINK RENDERING IN REACT ARTIFACTS — CRITICAL RULES
+
+**NEVER use `window.open()` or `onClick` handlers for external navigation** — these are blocked in sandboxed artifact environments and buttons will silently do nothing.
+
+**ALWAYS use `<a>` tags for all external links:**
+
+```jsx
+// ✅ CORRECT — always works
+<a
+  href={scheme.official_link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-1 px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
+>
+  🔗 Apply Now ↗
+</a>
+
+// ❌ WRONG — silently fails in artifact sandbox
+<button onClick={() => window.open(scheme.official_link, '_blank')}>Apply</button>
+
+// ❌ WRONG — silently fails in artifact sandbox
+<button onClick={() => { window.location.href = scheme.official_link }}>Apply</button>
+```
+
+**URL validation before rendering:**
+```jsx
+// Always validate URL before rendering a link
+const isValidUrl = (url) => {
+  if (!url || url === 'null' || url === 'N/A' || url === '') return false;
+  try { new URL(url); return true; } catch { return false; }
+};
+
+// Render with fallback
+const SchemeLink = ({ url, name }) => {
+  const finalUrl = isValidUrl(url)
+    ? url
+    : `https://www.google.com/search?q=${encodeURIComponent(name + ' official apply')}`;
+  const label = isValidUrl(url) ? '🔗 Apply Now ↗' : '🔍 Find Apply Link ↗';
+  return (
+    <a href={finalUrl} target="_blank" rel="noopener noreferrer"
+       className="text-blue-600 underline hover:text-blue-800 text-sm">
+      {label}
+    </a>
+  );
+};
+```
