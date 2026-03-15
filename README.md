@@ -15,7 +15,7 @@ Click the green **`Code`** button on this page → **`Download ZIP`**
 1. Go to [claude.ai](https://claude.ai)
 2. Click your profile icon → **`Customize`**
 3. Select the **`Skills`** tab
-4. Click **`Upload Skill`** or **`Add Skill`**
+4. Click **`Upload Skill`**
 5. Upload the downloaded **`.zip`** file
 6. Done ✅
 
