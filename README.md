@@ -34,7 +34,7 @@ This skill transforms Claude into a **Government Scheme Intelligence Dashboard**
 | ⚠️ **Deadline Alerts** | Identifies schemes closing soon with application deadlines |
 | 🆕 **New Launches** | Tracks recently launched schemes from PIB and ministry portals |
 | 📊 **Analytics Dashboard** | Budget allocations, beneficiary stats, category breakdowns |
-| 🔍 **Smart Filtering** | Filter by category: farmers, students, women, SC/ST, startups, and more |
+| 🔍 **Smart Filtering** | Filter by category: farmers, students, women, startups, and more |
 
 ---
 
