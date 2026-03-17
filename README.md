@@ -49,9 +49,6 @@ Show me all active Karnataka government schemes for farmers
 Find hidden Central Government schemes most people don't know about
 ```
 ```
-List government schemes for SC/ST students closing soon
-```
-```
 Build an interactive dashboard of all Karnataka welfare schemes
 ```
 ```
